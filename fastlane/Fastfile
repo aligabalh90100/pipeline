@@ -2,16 +2,20 @@ platform :android do
   desc 'Build the Android application.'
   lane :build do
     # gradle(task: 'clean', project_dir: 'android/')
-    increment_version_name(app_project_dir: '**/app', bump_type: 'minor')
+    # increment_version_name(app_project_dir: '**/app', bump_type: 'minor')
+    increment_version_name(app_project_dir: 'android/app', bump_type: 'minor')
     # patch for bug fixes
     # minor small features 
     # major braking changes
-    increment_version_code(app_project_dir: '**/app')
-    gradle(task: 'bundle',
-    build_type: 'release',
-    project_dir: 'android/',
-    properties: {
-        "android.injected.signing.store.file" => ENV["ANDROID_KEYSTORE_BASE64"],
+    # increment_version_code(app_project_dir: '**/app')
+    increment_version_code(app_project_dir: 'android/app')
+    gradle(
+      task: 'bundle',
+      build_type: 'release',
+      project_dir: 'android/',
+      properties: {
+        # IMPORTANT: Use the filename here, NOT the Base64 secret
+        "android.injected.signing.store.file" => "app/my-app-release.jks",
         "android.injected.signing.store.password" => ENV["ANDROID_KEYSTORE_PASSWORD"],
         "android.injected.signing.key.alias" => ENV["ANDROID_KEY_ALIAS"],
         "android.injected.signing.key.password" => ENV["ANDROID_KEY_PASSWORD"],
