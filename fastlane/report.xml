@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: increment_version_name" time="0.48486">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: increment_version_code" time="0.410474">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: bundlerelease" time="40.307896">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>
