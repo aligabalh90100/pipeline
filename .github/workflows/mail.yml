@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24" # Stay on LTS for better stability with Expo
           cache: "npm"
 
       - name: Install Dependencies
@@ -27,8 +27,8 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2" # Standard version for Fastlane
-          bundler-cache: true # This makes future builds faster
+          ruby-version: "3.2"
+          bundler-cache: true
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -39,7 +39,8 @@ jobs:
 
       - name: Decode Keystore
         run: |
-          # We place it exactly where your Fastfile expects it
+          # This creates the directory path so the echo command doesn't fail
+          mkdir -p android/app
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/my-app-release.jks
 
       - name: Run Fastlane Build
