@@ -15,7 +15,7 @@ platform :android do
       project_dir: 'android/',
       properties: {
         # IMPORTANT: Use the filename here, NOT the Base64 secret
-        "android.injected.signing.store.file" => "app/my-app-release.jks",
+        "android.injected.signing.store.file" => "#{Dir.pwd}/android/app/my-app-release.jks",
         "android.injected.signing.store.password" => ENV["ANDROID_KEYSTORE_PASSWORD"],
         "android.injected.signing.key.alias" => ENV["ANDROID_KEY_ALIAS"],
         "android.injected.signing.key.password" => ENV["ANDROID_KEY_PASSWORD"],
