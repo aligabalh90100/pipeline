@@ -14,7 +14,7 @@ platform :android do
       build_type: 'release',
       project_dir: 'android/',
       properties: {
-          "MYAPP_RELEASE_STORE_FILE" => ENV["ANDROID_KEYSTORE_PATH"],
+          "MYAPP_RELEASE_STORE_FILE" => ENV["ANDROID_KEYSTORE_BASE64"],
           "MYAPP_RELEASE_STORE_PASSWORD" => ENV["ANDROID_KEYSTORE_PASSWORD"],
           "MYAPP_RELEASE_KEY_ALIAS" => ENV["ANDROID_KEY_ALIAS"],
           "MYAPP_RELEASE_KEY_PASSWORD" => ENV["ANDROID_KEY_PASSWORD"]
